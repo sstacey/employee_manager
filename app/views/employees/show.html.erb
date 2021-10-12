@@ -1,1 +1,11 @@
 <h1><%= "#{@employee.full_name}" %></h1>
+
+
+<% if @employee.subordinates.count > 0 %>
+<h2>Direct Reports</h2>
+  <ul>
+  <% @employee.subordinates.each do |sub| %>
+    <li><%= link_to sub.full_name, sub %></li>
+  <% end %>
+  </ul>
+<% end %>
