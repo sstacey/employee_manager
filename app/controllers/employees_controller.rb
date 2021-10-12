@@ -34,6 +34,13 @@ class EmployeesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+
+    redirect_to root_path
+  end
   
 
   private
