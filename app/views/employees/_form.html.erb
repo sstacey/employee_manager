@@ -28,6 +28,13 @@
     <% end %>
   </div>
   <div class="">
+    <%= form.label :manager_id %>
+    <%= form.collection_select :manager_id, Employee.order(:name), :id, :full_name %>
+    <% @employee.errors.full_messages_for(:manager_id).each do |message| %>
+      <div class=""><%= message %></div>
+    <% end %>
+  </div>
+  <div class="">
     <%= form.submit %>
   </div>
 <% end %>
