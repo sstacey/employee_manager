@@ -15,8 +15,15 @@
   </div>
   <div class="">
     <%= form.label :job_id %>
-    <%= form.collection_select :job_id, Job.all, :id, :name %>
-    <% @employee.errors.full_messages_for(:last_name).each do |message| %>
+    <%= form.collection_select :job_id, Job.order(:name), :id, :name %>
+    <% @employee.errors.full_messages_for(:job_id).each do |message| %>
+      <div class=""><%= message %></div>
+    <% end %>
+  </div>
+  <div class="">
+    <%= form.label :org_id %>
+    <%= form.collection_select :org_id, Org.order(:name), :id, :name %>
+    <% @employee.errors.full_messages_for(:org_id).each do |message| %>
       <div class=""><%= message %></div>
     <% end %>
   </div>
