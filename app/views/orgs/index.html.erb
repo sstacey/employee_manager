@@ -1,0 +1,14 @@
+<h1>Orgs</h1>
+
+<%= link_to 'New Org', new_org_path %>
+<ul>
+  <% @orgs.each do |org| %>
+    <li>
+      <%= link_to org.name, org %> | 
+      <%= link_to 'Edit', edit_org_path(org) %> |
+      <%= link_to 'Delete', org_path(org),
+                  method: :delete,
+                  data: { confrim: 'Are you sure?' } %> 
+    </li>
+  <% end %>
+</ul>
