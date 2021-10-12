@@ -14,6 +14,13 @@
     <% end %>
   </div>
   <div class="">
+    <%= form.label :job_id %>
+    <%= form.collection_select :job_id, Job.all, :id, :name %>
+    <% @employee.errors.full_messages_for(:last_name).each do |message| %>
+      <div class=""><%= message %></div>
+    <% end %>
+  </div>
+  <div class="">
     <%= form.submit %>
   </div>
 <% end %>
