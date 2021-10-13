@@ -15,7 +15,8 @@ class OrgsController < ApplicationController
     @org = Org.new(org_params)
 
     if @org.save
-      redirect_to @org
+      flash[:notice] = "#{@org.name} created!"
+      redirect_to orgs_path
     else
       render :new
     end
@@ -38,8 +39,8 @@ class OrgsController < ApplicationController
   def destroy
     @org = Org.find(params[:id])
     @org.destroy
-
-    redirect_to root_path
+    flash[:notice] = "#{@org.name} deleted!"
+    redirect_to orgs_path
   end
   
 
