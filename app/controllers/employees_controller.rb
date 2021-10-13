@@ -15,7 +15,8 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     if @employee.save
-      redirect_to @employee
+      redirect_to root_url
+      flash[:notice] = "#{@employee.first_name} #{@employee.last_name} created!"
     else
       render :new
     end
@@ -29,7 +30,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
 
     if @employee.update(employee_params)
-      redirect_to @employee
+      redirect_to employees_path
     else
       render :edit
     end
