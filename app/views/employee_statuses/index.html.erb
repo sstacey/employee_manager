@@ -1,0 +1,15 @@
+<h1>Employees Statuses</h1>
+<%= link_to 'New Status', new_employee_status_path %>
+<%= will_paginate @employee_statuses %>
+<ul>
+  <% @employee_statuses.each do |employee_status| %>
+    <li>
+      <%= link_to employee_status.name, employee_status %> | 
+      <%= link_to 'Edit', edit_employee_status_path(employee_status) %> |
+      <%= link_to 'Delete', employee_status_path(employee_status),
+                  method: :delete,
+                  data: { confrim: 'Are you sure?' } %> 
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @employee_statuses %>

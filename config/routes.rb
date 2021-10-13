@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :employees
   resources :jobs
   resources :orgs
+  resources :employee_statuses
   
   devise_for :users
 
