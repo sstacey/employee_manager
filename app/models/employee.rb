@@ -10,6 +10,15 @@ class Employee < ApplicationRecord
   validates :job_id, presence: true
   validates :org_id, presence: true
 
+  def self.search(search)
+    if search
+      where('lower(first_name) LIKE :search OR lower(last_name) LIKE :search', search: "#{search.downcase}%")
+    else
+      all
+    end
+  end
+  
+
   def full_name
     "#{first_name} #{last_name}".titleize
   end

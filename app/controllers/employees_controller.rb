@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.paginate(page: params[:page], per_page: 10)
+    @employees = Employee.search(params[:query]).paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -45,6 +45,6 @@ class EmployeesController < ApplicationController
 
   private
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :job_id, :org_id, :manager_id, :employee_status_id)
+    params.require(:employee).permit(:first_name, :last_name, :job_id, :org_id, :manager_id, :employee_status_id, :query)
   end
 end
