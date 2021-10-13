@@ -15,7 +15,8 @@ class EmployeeStatusesController < ApplicationController
     @employee_status = EmployeeStatus.new(employee_status_params)
 
     if @employee_status.save
-      redirect_to @employee_status
+      flash[:notice] = "#{@employee_status.name} created!"
+      redirect_to employee_statuses_path
     else
       render :new
     end
@@ -38,8 +39,8 @@ class EmployeeStatusesController < ApplicationController
   def destroy
     @employee_status = EmployeeStatus.find(params[:id])
     @employee_status.destroy
-
-    redirect_to root_path
+    flash[:notice] = "#{@employee_status.name} deleted!"
+    redirect_to employee_statuses_path
   end
   
 
