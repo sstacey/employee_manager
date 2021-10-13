@@ -1,6 +1,7 @@
 class Employee < ApplicationRecord
   belongs_to :job
   belongs_to :org
+  belongs_to :employee_status
   has_many :subordinates, class_name: 'Employee', foreign_key: 'manager_id'
   belongs_to :manager, class_name: 'Employee', optional: true
 
