@@ -9,6 +9,8 @@ class Employee < ApplicationRecord
   validates :last_name, presence: true
   validates :job_id, presence: true
   validates :org_id, presence: true
+  validates :code, presence: true, uniqueness: true
+  
 
   def self.search(search)
     if search
