@@ -14,9 +14,9 @@ EmployeeStatus.create(code: '5', name: 'LOA')
 EmployeeStatus.create(code: '2', name: 'Inactive')
 
 # Seed manager data
-Employee.create(first_name: 'Sterling', last_name: 'Archer', job_id: 3, org_id: 1)
-Employee.create(first_name: 'Mallory', last_name: 'Archer', org_id: 2, job_id: 3, manager_id: 1)
-Employee.create(first_name: 'Lana', last_name: 'Kane', org_id: 3, job_id: 3, manager_id: 1)
+Employee.create(first_name: 'Sterling', last_name: 'Archer', job_id: 3, org_id: 1, employee_status_id: 1)
+Employee.create(first_name: 'Mallory', last_name: 'Archer', org_id: 2, job_id: 3, manager_id: 1, employee_status_id: 1)
+Employee.create(first_name: 'Lana', last_name: 'Kane', org_id: 3, job_id: 3, manager_id: 1, employee_status_id: 1)
 
 # Seed employee data
 100.times do |n|
@@ -25,5 +25,6 @@ Employee.create(first_name: 'Lana', last_name: 'Kane', org_id: 3, job_id: 3, man
   job_id = rand(0..2)
   org_id = rand(0..2)
   manager_id = rand(0..2)
-  Employee.create(first_name: first_name, last_name: last_name, job_id: job_id, org_id: org_id, manager_id: manager_id)
+  employee_status_id = 1
+  Employee.create(first_name: first_name, last_name: last_name, job_id: job_id, org_id: org_id, manager_id: manager_id, employee_status_id: employee_status_id)
 end
