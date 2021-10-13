@@ -9,7 +9,8 @@
 <ul>
   <% @employees.each do |employee| %>
     <li>
-      <%= link_to employee.full_name, employee %> | 
+      <%= link_to employee.full_name, employee %> |
+      <%= "G#{employee.code}" %> | 
       <%= link_to 'Edit', edit_employee_path(employee) %> |
       <%= link_to 'Delete', employee_path(employee),
                   method: :delete,
