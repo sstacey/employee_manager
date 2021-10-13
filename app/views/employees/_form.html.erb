@@ -1,7 +1,7 @@
 <%= form_with model: @employee do |form| %>
   <div class="">
     <%= form.label :code %>
-    <%= form.text_field :code, value: "#{Employee.last.code + 1}" %>
+    <%= form.text_field :code, value: "#{Employee.maximum('code') + 1}" %>
     <% @employee.errors.full_messages_for(:code).each do |message| %>
       <div class=""><%= message %></div>
     <% end %>
