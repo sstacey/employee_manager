@@ -1,6 +1,13 @@
 class EmployeesController < ApplicationController
   def index
     @employees = Employee.search(params[:query]).paginate(page: params[:page], per_page: 10)
+    @show_all = params[:all]
+    if @show_all == 'true'
+      @employees
+    else
+      @employees = @employees.active
+      @show_all = false
+    end
   end
 
   def show
@@ -42,10 +49,11 @@ class EmployeesController < ApplicationController
     flash[:notice] = "#{@employee.full_name} deleted!"
     redirect_to employees_path
   end
-  
 
   private
+
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :job_id, :org_id, :manager_id, :employee_status_id, :code, :query)
+    params.require(:employee).permit(:first_name, :last_name, :job_id, :org_id, :manager_id, :employee_status_id,
+                                     :code, :query, :all)
   end
 end

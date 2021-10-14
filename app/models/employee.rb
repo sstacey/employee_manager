@@ -11,6 +11,8 @@ class Employee < ApplicationRecord
   validates :org_id, presence: true
   validates :code, presence: true, uniqueness: true
 
+  scope :active, -> { where(employee_status_id: [1, 2]) }
+
   def self.search(search)
     if search
       where('lower(first_name) LIKE :search OR lower(last_name) LIKE :search OR lower(code) LIKE :search',
