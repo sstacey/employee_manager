@@ -15,7 +15,7 @@ class Employee < ApplicationRecord
 
   def self.search(search)
     if search
-      where('lower(first_name) LIKE :search OR lower(last_name) LIKE :search OR lower(code) LIKE :search',
+      where('lower(first_name) LIKE :search OR lower(last_name) LIKE :search OR code LIKE :search',
             search: "#{search.downcase}%")
     else
       all
