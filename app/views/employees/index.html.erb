@@ -11,7 +11,6 @@
     <% else %>
       <%= link_to "Show deactivated", employees_path(all: "true", query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
 <% end %>
-<%= will_paginate @employees %>
 <ul>
   <% @employees.each do |employee| %>
     <li>
@@ -24,5 +23,8 @@
     </li>
   <% end %>
 </ul>
-<%= will_paginate @employees %>
+<div class="digg_pagination">
+  <%= will_paginate @employees %>
+</div>
+
 <%= "#{@employees.count} employees found." %>
