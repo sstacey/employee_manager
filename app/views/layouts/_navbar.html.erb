@@ -26,8 +26,8 @@
             <%= current_user.first_name %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+            <li><%= link_to "Change Password", "#", class: "dropdown-item" %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item" %></li>
           </ul>
         </li>
         <% else  %>
