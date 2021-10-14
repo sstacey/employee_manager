@@ -7,7 +7,7 @@
   <%= form.submit 'Search', name: nil %>
 <% end %>
 <% if @show_all %>
-      <%= link_to "Hide deactivated", employees_path, class: "btn btn-light mb-2 mb-md-0" %>
+      <%= link_to "Hide deactivated", employees_path(query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
     <% else %>
       <%= link_to "Show deactivated", employees_path(all: "true", query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
 <% end %>
