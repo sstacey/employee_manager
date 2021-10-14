@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_184301) do
+ActiveRecord::Schema.define(version: 2021_10_14_115255) do
 
   create_table "employee_statuses", force: :cascade do |t|
     t.string "code"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_184301) do
     t.integer "job_id"
     t.integer "org_id"
     t.integer "manager_id"
-    t.string "employee_status_id"
+    t.integer "employee_status_id"
     t.integer "code"
   end
 
