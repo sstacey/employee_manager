@@ -3,7 +3,13 @@
 <%= form_with url: employees_path, method: :get do |form| %>
   <%= form.label :query, 'Search for:' %>
   <%= form.text_field :query, value: params[:query] %>
+  <%= form.hidden_field :all, value: params[:all] %>
   <%= form.submit 'Search', name: nil %>
+<% end %>
+<% if @show_all %>
+      <%= link_to "Hide deactivated", employees_path, class: "btn btn-light mb-2 mb-md-0" %>
+    <% else %>
+      <%= link_to "Show deactivated", employees_path(all: "true", query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
 <% end %>
 <%= will_paginate @employees %>
 <ul>
@@ -19,3 +25,4 @@
   <% end %>
 </ul>
 <%= will_paginate @employees %>
+<%= "#{@employees.count} employees found." %>
