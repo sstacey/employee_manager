@@ -5,29 +5,22 @@
         <th scope="col">EmpNumber</th>
         <th scope="col">Full Name</th>
         <th scope="col">Status</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
       <% @employees.each do |employee| %>
       <tr>
         <th scope="row"><%= employee.code %></th>
-        <td><%= employee.full_name %></td>
+        <td><%= link_to employee.full_name, edit_employee_path(employee) %></td>
         <td><%= employee.employee_status.name %></td>
+        <td>
+          <%= link_to 'Delete', employee_path(employee),
+                  method: :delete,
+                  data: { confrim: 'Are you sure?' } %> 
+        </td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-
-<ul>
-  <% @employees.each do |employee| %>
-    <li>
-      <%= link_to employee.full_name, employee %> |
-      <%= "G#{employee.code}" %> | 
-      <%= link_to 'Edit', edit_employee_path(employee) %> |
-      <%= link_to 'Delete', employee_path(employee),
-                  method: :delete,
-                  data: { confrim: 'Are you sure?' } %> 
-    </li>
-  <% end %>
-</ul>
