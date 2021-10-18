@@ -1,10 +1,17 @@
 <h1>Employees</h1>
-<%= link_to 'New Employee', new_employee_path %>
-<%= form_with url: employees_path, method: :get do |form| %>
-  <%= form.label :query, 'Search for:' %>
-  <%= form.text_field :query, value: params[:query] %>
-  <%= form.hidden_field :all, value: params[:all] %>
-  <%= form.submit 'Search', name: nil %>
+
+<%= button_to 'New Employee', new_employee_path, class: "btn btn-outline-primary btn-sm", method: :get %>
+
+
+<%= bootstrap_form_with(url: employees_path, local: true, method: :get) do |f| %>
+  <div class="row">
+    <div class="col-sm-3">
+    <%= f.search_field :query, hide_label: true, label: 'Search', value: params[:query], placeholder: 'Search...' %>
+    <%= f.hidden_field :all, value: params[:all] %>
+    <%= f.submit 'Search', name: nil %>
+    </div>
+  </div>
+
 <% end %>
 <% if @show_all %>
       <%= link_to "Hide deactivated", employees_path(query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
