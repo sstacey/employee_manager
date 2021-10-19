@@ -1,23 +1,16 @@
-<h1>Employees</h1>
-
-<%= button_to 'New Employee', new_employee_path, class: "btn btn-outline-primary btn-sm", method: :get %>
 
 
-<%= bootstrap_form_with(url: employees_path, local: true, method: :get) do |f| %>
-  <div class="row">
-    <div class="col-sm-3">
-    <%= f.search_field :query, hide_label: true, label: 'Search', value: params[:query], placeholder: 'Search...' %>
-    <%= f.hidden_field :all, value: params[:all] %>
-    <%= f.submit 'Search', name: nil %>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <h1>Employees</h1>
   </div>
+  <div class="col-md-6 text-end">
+    <%= button_to 'New Employee', new_employee_path, class: "btn btn-outline-primary", method: :get %>
+  </div>
+</div>
 
-<% end %>
-<% if @show_all %>
-      <%= link_to "Hide deactivated", employees_path(query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
-    <% else %>
-      <%= link_to "Show deactivated", employees_path(all: "true", query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
-<% end %>
+<%= render 'employees/search_form' %>
+
 <%= render 'employees/table' %>
 <div class="digg_pagination">
   <%= will_paginate @employees %>
