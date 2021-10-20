@@ -11,9 +11,10 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <%= render 'layouts/navbar' %>
+    <div class="container py-3">
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

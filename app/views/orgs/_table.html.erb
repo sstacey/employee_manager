@@ -1,0 +1,24 @@
+<div class="table">
+  <table class="table table-hover">
+    <thead class="table-secondary">
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Name</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orgs.each do |org| %>
+      <tr>
+        <th scope="row"><%= org.code %></th>
+        <td><%= link_to org.name, edit_org_path(org) %></td>
+        <td>
+          <%= link_to 'Delete', org_path(org),
+                  method: :delete,
+                  data: { confrim: 'Are you sure?' } %> 
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

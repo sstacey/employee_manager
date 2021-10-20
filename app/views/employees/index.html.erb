@@ -1,30 +1,15 @@
-<h1>Employees</h1>
-<%= link_to 'New Employee', new_employee_path %>
-<%= form_with url: employees_path, method: :get do |form| %>
-  <%= form.label :query, 'Search for:' %>
-  <%= form.text_field :query, value: params[:query] %>
-  <%= form.hidden_field :all, value: params[:all] %>
-  <%= form.submit 'Search', name: nil %>
-<% end %>
-<% if @show_all %>
-      <%= link_to "Hide deactivated", employees_path(query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
-    <% else %>
-      <%= link_to "Show deactivated", employees_path(all: "true", query: params[:query]), class: "btn btn-light mb-2 mb-md-0" %>
-<% end %>
-<ul>
-  <% @employees.each do |employee| %>
-    <li>
-      <%= link_to employee.full_name, employee %> |
-      <%= "G#{employee.code}" %> | 
-      <%= link_to 'Edit', edit_employee_path(employee) %> |
-      <%= link_to 'Delete', employee_path(employee),
-                  method: :delete,
-                  data: { confrim: 'Are you sure?' } %> 
-    </li>
-  <% end %>
-</ul>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <h1>Employees</h1>
+  </div>
+  <div class="col-md-6 text-end">
+    <%= button_to 'New Employee', new_employee_path, class: "btn btn-outline-primary", method: :get %>
+  </div>
+</div>
+
+<%= render 'employees/search_form' %>
+<%= render 'employees/table' %>
 <div class="digg_pagination">
   <%= will_paginate @employees %>
 </div>
-
 <%= "#{@employees.count} employees found." %>
