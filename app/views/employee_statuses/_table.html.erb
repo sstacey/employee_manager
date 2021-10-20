@@ -1,0 +1,24 @@
+<div class="table">
+  <table class="table table-hover">
+    <thead class="table-secondary">
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Name</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employee_statuses.each do |status| %>
+      <tr>
+        <th scope="row"><%= status.code %></th>
+        <td><%= link_to status.name, edit_employee_status_path(status) %></td>
+        <td>
+          <%= link_to 'Delete', employee_status_path(status),
+                  method: :delete,
+                  data: { confrim: 'Are you sure?' } %> 
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
