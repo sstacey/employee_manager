@@ -263,12 +263,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
-<<<<<<< HEAD
-  bootstrap (~> 5.1)
-=======
   bootstrap (~> 5.1.0)
   bootstrap_form (~> 4.5)
->>>>>>> fd916754ce8bce8a00d4b94cb28766b55e6e294e
   byebug
   capybara (>= 3.26)
   devise
