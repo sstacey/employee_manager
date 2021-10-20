@@ -1,5 +1,5 @@
 <%= form_with model: org do |form| %>
-  <div class="row g-2">
+  <div class="row mb-2">
     <div class="col-md-4">
       <%= form.label :code, class: 'form-label' %>
       <%= form.text_field :code, class: 'form-control' %>
@@ -7,8 +7,9 @@
         <div class=""><%= message %></div>
       <% end %>
     </div>
+  </div>
 
-    <div class="row g-2 mb-2">
+  <div class="row mb-2">
       <div class="col-md-4">
         <%= form.label :name, class: 'form-label' %>
         <%= form.text_field :name, class: 'form-control' %>
