@@ -32,7 +32,7 @@
         </li>
         <% else  %>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Login</a>
+            <%= link_to "Login", new_user_session_path, class: "nav-link active" %>
           </li>
         <% end %>
     </div>
