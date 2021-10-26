@@ -1,3 +1,10 @@
+# Seed User data
+User.create(email: 'sterling@example.com',
+            first_name: 'Sterling',
+            last_name: 'Archer',
+            password: 'password',
+            password_confirmation: 'password')
+
 # Seed Org Data
 Org.create(code: 'Dallas', name: 'Dallas')
 Org.create(code: 'La Cruces', name: 'Las Cruces')
@@ -14,9 +21,11 @@ EmployeeStatus.create(code: '5', name: 'LOA')
 EmployeeStatus.create(code: '2', name: 'Inactive')
 
 # Seed manager data
-Employee.create(first_name: 'Sterling', last_name: 'Archer', job_id: 3, org_id: 1, employee_status_id: 1, code: 800100)
-Employee.create(first_name: 'Mallory', last_name: 'Archer', org_id: 2, job_id: 3, manager_id: 1, employee_status_id: 1, code: 800101)
-Employee.create(first_name: 'Lana', last_name: 'Kane', org_id: 3, job_id: 3, manager_id: 1, employee_status_id: 1, code: 800102)
+Employee.create(first_name: 'Sterling', last_name: 'Archer', job_id: 3, org_id: 1, employee_status_id: 1, code: 800_100)
+Employee.create(first_name: 'Mallory', last_name: 'Archer', org_id: 2, job_id: 3, manager_id: 1, employee_status_id: 1,
+                code: 800_101)
+Employee.create(first_name: 'Lana', last_name: 'Kane', org_id: 3, job_id: 3, manager_id: 1, employee_status_id: 1,
+                code: 800_102)
 
 # Seed employee data
 100.times do |n|
@@ -26,6 +35,7 @@ Employee.create(first_name: 'Lana', last_name: 'Kane', org_id: 3, job_id: 3, man
   org_id = rand(0..2)
   manager_id = rand(0..2)
   employee_status_id = 1
-  code = 800103 + n
-  Employee.create(first_name: first_name, last_name: last_name, job_id: job_id, org_id: org_id, manager_id: manager_id, employee_status_id: employee_status_id, code: code)
+  code = 800_103 + n
+  Employee.create(first_name: first_name, last_name: last_name, job_id: job_id, org_id: org_id, manager_id: manager_id,
+                  employee_status_id: employee_status_id, code: code)
 end

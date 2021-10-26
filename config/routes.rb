@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :jobs
   resources :orgs
   resources :employee_statuses
-  
-  devise_for :users
 
+  devise_for :users
+  resources :users, only: [:index]
 end

@@ -1,4 +1,6 @@
 class EmployeeStatusesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @employee_statuses = EmployeeStatus.paginate(page: params[:page], per_page: 10)
   end
@@ -42,9 +44,9 @@ class EmployeeStatusesController < ApplicationController
     flash[:notice] = "#{@employee_status.name} deleted!"
     redirect_to employee_statuses_path
   end
-  
 
   private
+
   def employee_status_params
     params.require(:employee_status).permit(:code, :name)
   end

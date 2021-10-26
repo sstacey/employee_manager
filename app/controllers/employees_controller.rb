@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @employees = Employee.search(params[:query]).paginate(page: params[:page], per_page: 10)
     @show_all = params[:all]

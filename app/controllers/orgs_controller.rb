@@ -1,4 +1,6 @@
 class OrgsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @orgs = Org.all
   end
@@ -42,9 +44,9 @@ class OrgsController < ApplicationController
     flash[:notice] = "#{@org.name} deleted!"
     redirect_to orgs_path
   end
-  
 
   private
+
   def org_params
     params.require(:org).permit(:name, :code)
   end

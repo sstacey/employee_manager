@@ -1,0 +1,20 @@
+<div class="table">
+  <table class="table table-hover">
+    <thead class="table-secondary">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Approved?</th>
+        <th scope="col">Edit</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= "#{user.first_name} #{user.last_name}" %></th>
+        <th scope="row"><%= user.approved? %></th>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
