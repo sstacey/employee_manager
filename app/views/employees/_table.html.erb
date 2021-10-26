@@ -1,10 +1,11 @@
-<div class="table">
+<%= turbo_frame_tag "employes", class: "table" do %>
   <table class="table table-hover">
     <thead class="table-secondary">
       <tr>
-        <th scope="col">EmpNumber</th>
-        <th scope="col">Full Name</th>
-        <th scope="col">Status</th>
+        <th scope="col"><%= sort_link column: "code", label: "EmpNumber" %></th>
+        <th scope="col"><%= sort_link column: "first_name", label: "Name" %></th>
+        <th scope="col"><%= sort_link column: "job", label: "Title" %></th>
+        <th scope="col"><%= sort_link column: "status", label: "Status" %></th>
         <th scope="col">Delete</th>
       </tr>
     </thead>
@@ -23,4 +24,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
+<% end %>
