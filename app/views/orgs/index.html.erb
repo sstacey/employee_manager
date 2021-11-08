@@ -1,4 +1,11 @@
-<h1>Orgs</h1>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <h1>Organizations</h1>
+  </div>
+  <div class="col-md-6 text-end">
+    <%= button_to 'New Org', new_org_path, class: "btn btn-outline-primary", method: :get %>
+  </div>
+</div>
 
 <%= link_to 'New Org', new_org_path %>
 <%= render 'orgs/table' %>

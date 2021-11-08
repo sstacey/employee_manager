@@ -2,7 +2,8 @@ class OrgsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orgs = Org.all
+    @orgs = Org.order("#{params[:column]} #{params[:direction]}")
+               .paginate(page: params[:page], per_page: 10)
   end
 
   def show
