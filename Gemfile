@@ -8,6 +8,7 @@ gem 'bootstrap_form', '~> 4.5'
 gem 'devise'
 gem 'pg'
 gem 'hotwire-rails'
+gem 'turbo-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use Puma as the app server
