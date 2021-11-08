@@ -2,7 +2,8 @@ class EmployeeStatusesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @employee_statuses = EmployeeStatus.paginate(page: params[:page], per_page: 10)
+    @employee_statuses = EmployeeStatus.order("#{params[:column]} #{params[:direction]}").paginate(page: params[:page],
+                                                                                                   per_page: 10)
   end
 
   def show

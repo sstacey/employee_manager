@@ -2,8 +2,8 @@
   <table class="table table-hover">
     <thead class="table-secondary">
       <tr>
-        <th scope="col">Code</th>
-        <th scope="col">Name</th>
+        <th scope="col"><%= sort_link(column: 'code', label: 'Code', table: 'orgs') %></th>
+        <th scope="col"><%= sort_link(column: 'name', label: 'Name', table: 'orgs') %></th>
         <th scope="col">Delete</th>
       </tr>
     </thead>
