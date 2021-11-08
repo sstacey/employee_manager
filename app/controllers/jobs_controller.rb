@@ -2,7 +2,8 @@ class JobsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @jobs = Job.all
+    @jobs = Job.order("#{params[:column]} #{params[:direction]}")
+               .paginate(page: params[:page], per_page: 10)
   end
 
   def show
